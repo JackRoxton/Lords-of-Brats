@@ -19,12 +19,6 @@ public class Weapon : MonoBehaviour
         this.GetComponent<SpriteRenderer>().sprite = pickeUpSprite;
     }
 
-    IEnumerator HitFlagCD()
-    {
-        hitFlag = false;
-        yield return new WaitForSeconds(0.1f);
-        hitFlag = true;
-    }
     public void Throw()
     {
         this.GetComponent<SpriteRenderer>().sprite = Sprite;
@@ -39,7 +33,6 @@ public class Weapon : MonoBehaviour
         {
             Vector2 kb = new Vector2(enemy.transform.position.x - Owner.transform.position.x, enemy.transform.position.y - Owner.transform.position.y).normalized;
             enemy.GetHit(dmg, kb * strength);
-            StartCoroutine(HitFlagCD());
             if(isThrown) Destroy(this.gameObject);
         }
     }

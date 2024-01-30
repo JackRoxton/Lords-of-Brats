@@ -15,6 +15,7 @@ public class Enemy : MonoBehaviour {
     public List<Sprite> PolicesHurtSprites = new List<Sprite>();
     public int Hp = 1;
     public bool Stop = false;
+    public bool hitFlag = true;
     Vector3 direction;
     int refSprite;
     void Start(){
@@ -43,21 +44,51 @@ public class Enemy : MonoBehaviour {
         {
             return;
         }
-        //direction = new Vector3(0,0,0) - transform.position;
-        //transform.Translate(direction.normalized * Speed * Time.deltaTime);
-        transform.position = Vector2.MoveTowards(this.transform.position,Vector2.zero,Speed * Time.deltaTime);
+        /*direction = new Vector3(0,0,0) - transform.position;
+        transform.Translate(direction.normalized * Speed * Time.deltaTime);*/
+        transform.position = Vector2.MoveTowards(this.transform.position,Vector2.zero/*player here*/,Speed * Time.deltaTime);
     }
 
     IEnumerator StopDuration()
     {
+        hitFlag = false;
+        this.GetComponent<Animator>().enabled = false;
         Stop = true;
-        yield return new WaitForSeconds(1f);
+        switch (Type)
+        {
+            case Waves.Kids:
+                this.GetComponent<SpriteRenderer>().sprite = KidsHurtSprites[refSprite];
+                break; 
+            case Waves.Parents:
+                this.GetComponent<SpriteRenderer>().sprite = AdultsHurtSprites[refSprite];
+                break; 
+            case Waves.Polices:
+                this.GetComponent<SpriteRenderer>().sprite = PolicesHurtSprites[refSprite];
+                break;
+        }
+        yield return new WaitForSeconds(0.1f);
+        hitFlag = true;
+        yield return new WaitForSeconds(0.9f);
+        this.GetComponent<Animator>().enabled = true;
         Stop = false;
+        switch (Type)
+        {
+            case Waves.Kids:
+                this.GetComponent<SpriteRenderer>().sprite = KidsSprites[refSprite];
+                break;
+            case Waves.Parents:
+                this.GetComponent<SpriteRenderer>().sprite = AdultsSprites[refSprite];
+                break;
+            case Waves.Polices:
+                this.GetComponent<SpriteRenderer>().sprite = PolicesSprites[refSprite];
+                break;
+        }
     }
 
     public void GetHit(int dmg, Vector2 kb) {
 
-        //StopAllCoroutines();
+        if(!hitFlag) return;
+        StopAllCoroutines();
 
         Camera.main.GetComponent<CameraScript>().ScreenShake();
         Camera.main.GetComponent<CameraScript>().HitStop();
@@ -89,6 +120,23 @@ public class Enemy : MonoBehaviour {
             }
 
             Destroy(this.gameObject);
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision == null) return;
+        if (Stop) return;
+
+        if (collision.gameObject.tag != "Player")
+        {
+            return;
+        }
+
+        PlayerController player = collision.gameObject.GetComponent<PlayerController>();
+        if (player != null)
+        {
+            player.GetHit(1, new Vector2(player.transform.position.x - this.transform.position.x, player.transform.position.y - this.transform.position.y).normalized * 10f);
         }
     }
 }

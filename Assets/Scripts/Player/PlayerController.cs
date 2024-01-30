@@ -102,15 +102,15 @@ public class PlayerController : MonoBehaviour
         else
             animator.SetBool("isMoving", true);
 
-        Movement *= 0.9f;
+        this.GetComponent<Rigidbody2D>().velocity *= 0.9f;
         this.transform.position += Movement * speed * Time.deltaTime;
 
         MousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
     }
 
-    public void GetHit(int dmg)
+    public void GetHit(int dmg, Vector2 kb)
     {
-        //knockback
+        this.GetComponent<Rigidbody2D>().velocity = kb;
         animator.Play("PlayerHurt");
         hp -= dmg;
         if(hp <= 0)
