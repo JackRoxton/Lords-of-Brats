@@ -21,9 +21,17 @@ public class PlayerController : MonoBehaviour
     public GameObject Arm;
     public GameObject ArmRotation;
     public GameObject PickupCollision;
+    public GameObject Head;
     [NonSerialized] public bool pickingUp;
     bool isAttacking = false;
     bool isThrowing = false;
+
+    public enum GameState
+    {
+        Play,
+        Pause
+    }
+    public GameState State = GameState.Play;
 
     void Start()
     {
@@ -32,12 +40,17 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+        //if (State == GameState.Pause) return;
         if(Input.GetMouseButtonDown(0))
         {
             if(isAttacking) return;
             if(SavedWeapon != null)
             {
                 StartCoroutine(Attack());
+            }
+            else
+            {
+                StartCoroutine(Headbutt());
             }
         }
 
@@ -91,10 +104,10 @@ public class PlayerController : MonoBehaviour
         MousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
     }
 
-    public void GetHit()
+    public void GetHit(int dmg)
     {
         //knockback
-        hp -= 1;
+        hp -= dmg;
         if(hp <= 0)
         {
             Debug.Log("ono am ded");
@@ -108,6 +121,16 @@ public class PlayerController : MonoBehaviour
         isAttacking = true;
         yield return new WaitForSeconds(0.25f);
         SavedWeapon.GetComponent<Weapon>().hitFlag = false;
+        isAttacking = false;
+    }
+
+    IEnumerator Headbutt()
+    {
+        animator.Play("HeadButt");
+        Head.GetComponent<PlayerHead>().hitFlag = true;
+        isAttacking = true;
+        yield return new WaitForSeconds(0.2f);
+        Head.GetComponent<PlayerHead>().hitFlag = false;
         isAttacking = false;
     }
 
@@ -128,17 +151,6 @@ public class PlayerController : MonoBehaviour
         pickingUp = true;
         yield return new WaitForSeconds(1);
         pickingUp = false;
-    }
-
-    private void OnTriggerStay2D(Collider2D collision)
-    {
-        if (collision == null) return;
-
-        if (collision.gameObject.tag == "Pickable" && pickingUp)
-        {
-            SavedWeapon = collision.gameObject;
-            SavedWeapon.tag = "Weapon";
-        }
     }
 
 }
