@@ -35,6 +35,14 @@ public class UIManager : MonoBehaviour {
         animator = GetComponent<Animator>();
         DialogBox.SetActive(false);
     }
+    public void Update() {
+        if (Input.GetKeyDown(KeyCode.I)) {
+            UIManager.Instance.LaunchDialogue("Intro");
+            Debug.Log("t");
+        }
+        if (Input.GetKeyDown(KeyCode.F)) UIManager.Instance.LaunchDialogue("Fin");
+    }
+
     public void LaunchDialogue(string key) {
         DialogBox.SetActive(true);
         //SoundManager.Instance.Music.volume = 0.5f;
@@ -43,12 +51,8 @@ public class UIManager : MonoBehaviour {
             Debug.Log("Dialogue " + key + " not found");
             return;
         }
-
         sentences = new Queue<dialogueStruct>();
-        Debug.Log("Start dialogue " + d.key);
-        foreach (dialogueStruct dialogue in d.dialogues)
-            sentences.Enqueue(dialogue);
-
+        foreach (dialogueStruct dialogue in d.dialogues) sentences.Enqueue(dialogue);
         animator.SetBool("isOpen", true);
         DisplayNextSentence();
     }
