@@ -24,7 +24,7 @@ public class GameManager : MonoBehaviour{
         for (int i = 0; i < Spawners.Count; i++) timers.Add(0);
     }
     void Update(){
-        while (thisWave < 2 && waves[thisWave].enemies > 0 && !UIManager.Instance.DialogBox.activeSelf) {
+        if (thisWave < waves.Count && waves[thisWave].enemies > 0 && !UIManager.Instance.DialogBox.activeSelf) {
             switch (spawnMode) {
                 case SpawnMode.ChainSpawn:
                     chainSpawnTimer += Time.deltaTime;
@@ -52,7 +52,16 @@ public class GameManager : MonoBehaviour{
         waves[thisWave].enemies--;
     }
     public void NextWave() {
+        switch (thisWave) {
+            case 0:
+                UIManager.Instance.LaunchDialogue("Fin");
+                break;
+            case 1:
+                break;
+            case 2:
+                break;
+        }
         thisWave++;
-        UIManager.Instance.LaunchDialogue("Fin");
+        
     }
 }
