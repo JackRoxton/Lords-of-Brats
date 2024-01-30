@@ -23,6 +23,7 @@ public class Enemy : MonoBehaviour {
                 break;
         }
         gameObject.GetComponent<SpriteRenderer>().sprite = Sprites[randomNumber];
+        gameObject.AddComponent<PolygonCollider2D>();
     }
     void Update(){
         direction = new Vector3(0,0,0) - transform.position;
