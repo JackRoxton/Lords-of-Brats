@@ -249,7 +249,7 @@ PrefabInstance:
       objectReference: {fileID: 1544358689}
     - target: {fileID: 7538735323555113027, guid: 7ea69e9cd2c6448429847430f14904ad, type: 3}
       propertyPath: waves.Array.data[2].wave
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7538735323555113027, guid: 7ea69e9cd2c6448429847430f14904ad, type: 3}
       propertyPath: waves.Array.data[0].enemies
@@ -262,6 +262,133 @@ PrefabInstance:
     - target: {fileID: 7538735323555113027, guid: 7ea69e9cd2c6448429847430f14904ad, type: 3}
       propertyPath: waves.Array.data[2].enemies
       value: 34
+      objectReference: {fileID: 0}
+    - target: {fileID: 7538735323555113029, guid: 7ea69e9cd2c6448429847430f14904ad, type: 3}
+      propertyPath: dictionnary.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7538735323555113029, guid: 7ea69e9cd2c6448429847430f14904ad, type: 3}
+      propertyPath: dictionnary.Array.data[1].key
+      value: Intro2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7538735323555113029, guid: 7ea69e9cd2c6448429847430f14904ad, type: 3}
+      propertyPath: dictionnary.Array.data[2].key
+      value: FinVague1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7538735323555113029, guid: 7ea69e9cd2c6448429847430f14904ad, type: 3}
+      propertyPath: dictionnary.Array.data[3].key
+      value: FinVague2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7538735323555113029, guid: 7ea69e9cd2c6448429847430f14904ad, type: 3}
+      propertyPath: dictionnary.Array.data[4].key
+      value: FinVague3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7538735323555113029, guid: 7ea69e9cd2c6448429847430f14904ad, type: 3}
+      propertyPath: dictionnary.Array.data[5].key
+      value: Fin
+      objectReference: {fileID: 0}
+    - target: {fileID: 7538735323555113029, guid: 7ea69e9cd2c6448429847430f14904ad, type: 3}
+      propertyPath: dictionnary.Array.data[6].key
+      value: Fin
+      objectReference: {fileID: 0}
+    - target: {fileID: 7538735323555113029, guid: 7ea69e9cd2c6448429847430f14904ad, type: 3}
+      propertyPath: dictionnary.Array.data[0].dialogues.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7538735323555113029, guid: 7ea69e9cd2c6448429847430f14904ad, type: 3}
+      propertyPath: dictionnary.Array.data[1].dialogues.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7538735323555113029, guid: 7ea69e9cd2c6448429847430f14904ad, type: 3}
+      propertyPath: dictionnary.Array.data[2].dialogues.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7538735323555113029, guid: 7ea69e9cd2c6448429847430f14904ad, type: 3}
+      propertyPath: dictionnary.Array.data[3].dialogues.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7538735323555113029, guid: 7ea69e9cd2c6448429847430f14904ad, type: 3}
+      propertyPath: dictionnary.Array.data[4].dialogues.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7538735323555113029, guid: 7ea69e9cd2c6448429847430f14904ad, type: 3}
+      propertyPath: dictionnary.Array.data[5].dialogues.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7538735323555113029, guid: 7ea69e9cd2c6448429847430f14904ad, type: 3}
+      propertyPath: dictionnary.Array.data[6].dialogues.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7538735323555113029, guid: 7ea69e9cd2c6448429847430f14904ad, type: 3}
+      propertyPath: dictionnary.Array.data[0].dialogues.Array.data[0].sentence
+      value: Ce parc semble si paisible, n'est-ce pas?
+      objectReference: {fileID: 0}
+    - target: {fileID: 7538735323555113029, guid: 7ea69e9cd2c6448429847430f14904ad, type: 3}
+      propertyPath: dictionnary.Array.data[0].dialogues.Array.data[1].sentence
+      value: ???
+      objectReference: {fileID: 0}
+    - target: {fileID: 7538735323555113029, guid: 7ea69e9cd2c6448429847430f14904ad, type: 3}
+      propertyPath: dictionnary.Array.data[0].dialogues.Array.data[2].sentence
+      value: Ta soeur vient de te jeter cette pelle, mais pourquoi?
+      objectReference: {fileID: 0}
+    - target: {fileID: 7538735323555113029, guid: 7ea69e9cd2c6448429847430f14904ad, type: 3}
+      propertyPath: dictionnary.Array.data[0].dialogues.Array.data[3].sentence
+      value: Va la ramasser et le rejoindre pour savoir ce qu'il y a
+      objectReference: {fileID: 0}
+    - target: {fileID: 7538735323555113029, guid: 7ea69e9cd2c6448429847430f14904ad, type: 3}
+      propertyPath: dictionnary.Array.data[1].dialogues.Array.data[0].sentence
+      value: "Mais pourquoi tu as fais \xE7a?!"
+      objectReference: {fileID: 0}
+    - target: {fileID: 7538735323555113029, guid: 7ea69e9cd2c6448429847430f14904ad, type: 3}
+      propertyPath: dictionnary.Array.data[1].dialogues.Array.data[1].sentence
+      value: "C'est comme \xE7a que tu discutes toi?"
+      objectReference: {fileID: 0}
+    - target: {fileID: 7538735323555113029, guid: 7ea69e9cd2c6448429847430f14904ad, type: 3}
+      propertyPath: dictionnary.Array.data[1].dialogues.Array.data[2].sentence
+      value: "Mais je pense que parler de cette mani\xE8re te sera utile pour ce
+        qui arrive..."
+      objectReference: {fileID: 0}
+    - target: {fileID: 7538735323555113029, guid: 7ea69e9cd2c6448429847430f14904ad, type: 3}
+      propertyPath: dictionnary.Array.data[2].dialogues.Array.data[0].sentence
+      value: "Tu as r\xE9ussi \xE0 te d\xE9barrasser de tout ce monde, f\xE9licitations!"
+      objectReference: {fileID: 0}
+    - target: {fileID: 7538735323555113029, guid: 7ea69e9cd2c6448429847430f14904ad, type: 3}
+      propertyPath: dictionnary.Array.data[2].dialogues.Array.data[1].sentence
+      value: "Mais je pense que parler de cette mani\xE8re te sera utile pour ce
+        qui arrive..."
+      objectReference: {fileID: 0}
+    - target: {fileID: 7538735323555113029, guid: 7ea69e9cd2c6448429847430f14904ad, type: 3}
+      propertyPath: dictionnary.Array.data[2].dialogues.Array.data[2].sentence
+      value: "Mais je pense que parler de cette mani\xE8re te sera utile pour ce
+        qui arrive..."
+      objectReference: {fileID: 0}
+    - target: {fileID: 7538735323555113029, guid: 7ea69e9cd2c6448429847430f14904ad, type: 3}
+      propertyPath: dictionnary.Array.data[3].dialogues.Array.data[0].sentence
+      value: "Tu es m\xEAme plsu fort que la police, c'est incroyable"
+      objectReference: {fileID: 0}
+    - target: {fileID: 7538735323555113029, guid: 7ea69e9cd2c6448429847430f14904ad, type: 3}
+      propertyPath: dictionnary.Array.data[3].dialogues.Array.data[1].sentence
+      value: Qui est-ce qui arrive maintenant?
+      objectReference: {fileID: 0}
+    - target: {fileID: 7538735323555113029, guid: 7ea69e9cd2c6448429847430f14904ad, type: 3}
+      propertyPath: dictionnary.Array.data[4].dialogues.Array.data[0].sentence
+      value: Il faut vraiment pas te chercher toi...
+      objectReference: {fileID: 0}
+    - target: {fileID: 7538735323555113029, guid: 7ea69e9cd2c6448429847430f14904ad, type: 3}
+      propertyPath: dictionnary.Array.data[4].dialogues.Array.data[1].sentence
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7538735323555113029, guid: 7ea69e9cd2c6448429847430f14904ad, type: 3}
+      propertyPath: dictionnary.Array.data[5].dialogues.Array.data[0].sentence
+      value: Hein..?
+      objectReference: {fileID: 0}
+    - target: {fileID: 7538735323555113029, guid: 7ea69e9cd2c6448429847430f14904ad, type: 3}
+      propertyPath: dictionnary.Array.data[5].dialogues.Array.data[1].sentence
+      value: Qui est-ce qui arrive maintenant?
+      objectReference: {fileID: 0}
+    - target: {fileID: 7538735323555113029, guid: 7ea69e9cd2c6448429847430f14904ad, type: 3}
+      propertyPath: dictionnary.Array.data[6].dialogues.Array.data[0].sentence
+      value: Il faut vraiment pas te chercher toi...
       objectReference: {fileID: 0}
     - target: {fileID: 7538735323555113081, guid: 7ea69e9cd2c6448429847430f14904ad, type: 3}
       propertyPath: m_Pivot.x
@@ -430,6 +557,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b94c080bcb358f4eb0d47eebeed15b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Sprite: {fileID: 0}
+  pickeUpSprite: {fileID: 0}
   dmg: 1
 --- !u!212 &590262529
 SpriteRenderer:
