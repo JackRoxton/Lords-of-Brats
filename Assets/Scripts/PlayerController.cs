@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.InteropServices.WindowsRuntime;
@@ -13,29 +14,40 @@ public class PlayerController : MonoBehaviour
     int hp = 3;
     Vector2 MousePos;
 
-    GameObject SavedWeapon;
+    bool faceR = false;
 
+    Animator animator;
+    [NonSerialized] public GameObject SavedWeapon;
     public GameObject Arm;
+    public GameObject ArmRotation;
     public GameObject PickupCollision;
-    bool pickingUp;
+    [NonSerialized] public bool pickingUp;
+    bool isAttacking = false;
+    bool isThrowing = false;
 
     void Start()
     {
-        
+        animator = this.GetComponent<Animator>();
     }
 
     void Update()
     {
         if(Input.GetMouseButtonDown(0))
         {
-            Attack();
-            Debug.Log("Attack");
+            if(isAttacking) return;
+            if(SavedWeapon != null)
+            {
+                StartCoroutine(Attack());
+            }
         }
 
         if (Input.GetMouseButtonDown(1))
         {
-            Throw();
-            Debug.Log("Throw");
+            if(isThrowing) return;
+            if(SavedWeapon != null)
+            {
+                StartCoroutine(Throw());
+            }
         }
 
         if (Input.GetKeyDown(KeyCode.E))
@@ -43,9 +55,22 @@ public class PlayerController : MonoBehaviour
             StartCoroutine(Pickup());
         }
 
+        if(ArmRotation.GetComponent<ArmRotation>().faceR && !faceR)
+        {
+            this.GetComponent<SpriteRenderer>().flipX = true;
+            faceR = true;
+        }
+        else if(!ArmRotation.GetComponent<ArmRotation>().faceR && faceR)
+        {
+            this.GetComponent<SpriteRenderer>().flipX = false;
+            faceR = false;
+        }
+
         if (SavedWeapon != null)
         {
             SavedWeapon.transform.position = Arm.transform.position;
+            SavedWeapon.transform.rotation = Arm.transform.rotation;
+            SavedWeapon.transform.localScale = ArmRotation.transform.localScale;
         }
 
     }
@@ -55,15 +80,20 @@ public class PlayerController : MonoBehaviour
         Movement.x = Input.GetAxis("Horizontal");
         Movement.y = Input.GetAxis("Vertical");
 
+        if (Movement == Vector3.zero)
+            animator.SetBool("isMoving", false);
+        else
+            animator.SetBool("isMoving", true);
+
         Movement *= 0.9f;
         this.transform.position += Movement * speed * Time.deltaTime;
 
         MousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        //Debug.Log(MousePos);
     }
 
     public void GetHit()
     {
+        //knockback
         hp -= 1;
         if(hp <= 0)
         {
@@ -71,24 +101,32 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    void Attack()
+    IEnumerator Attack()
     {
         Arm.GetComponent<Animator>().Play("WeaponAttack");
+        SavedWeapon.GetComponent<Weapon>().hitFlag = true;
+        isAttacking = true;
+        yield return new WaitForSeconds(0.25f);
+        SavedWeapon.GetComponent<Weapon>().hitFlag = false;
+        isAttacking = false;
     }
 
-    void Throw()
+    IEnumerator Throw()
     {
-        if (SavedWeapon == null) return;
+        Arm.GetComponent<Animator>().Play("ThrowWeapon");
+        isThrowing = true;
+        yield return new WaitForSeconds(0.1f);
         SavedWeapon.GetComponent<Rigidbody2D>().velocity = new Vector2(MousePos.x - this.transform.position.x,MousePos.y - this.transform.position.y).normalized * throwStrength;
+        SavedWeapon.GetComponent<Weapon>().hitFlag = true;
+        SavedWeapon.GetComponent<Weapon>().isThrown = true;
         SavedWeapon = null;
+        isThrowing = false;
     }
 
     IEnumerator Pickup()
     {
-        PickupCollision.SetActive(true);
         pickingUp = true;
         yield return new WaitForSeconds(1);
-        PickupCollision.SetActive(false);
         pickingUp = false;
     }
 
