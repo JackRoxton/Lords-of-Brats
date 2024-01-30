@@ -5,9 +5,21 @@ using UnityEngine;
 
 public class Weapon : MonoBehaviour
 {
+    public Sprite Sprite;
+    public Sprite pickeUpSprite;
     [NonSerialized] public bool hitFlag = false;
     public int dmg = 1;
     [NonSerialized] public bool isThrown = false;
+
+    public void ChangeSprite()
+    {
+        this.GetComponent<SpriteRenderer>().sprite = pickeUpSprite;
+    }
+
+    public void Throw()
+    {
+        this.GetComponent<SpriteRenderer>().sprite = Sprite;
+    }
 
     private void OnTriggerStay2D(Collider2D collision)
     {
