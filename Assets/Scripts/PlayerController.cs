@@ -14,6 +14,8 @@ public class PlayerController : MonoBehaviour
     int hp = 3;
     Vector2 MousePos;
 
+    bool faceR = false;
+
     Animator animator;
     [NonSerialized] public GameObject SavedWeapon;
     public GameObject Arm;
@@ -51,6 +53,17 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.E))
         {
             StartCoroutine(Pickup());
+        }
+
+        if(ArmRotation.GetComponent<ArmRotation>().faceR && !faceR)
+        {
+            this.GetComponent<SpriteRenderer>().flipX = true;
+            faceR = true;
+        }
+        else if(!ArmRotation.GetComponent<ArmRotation>().faceR && faceR)
+        {
+            this.GetComponent<SpriteRenderer>().flipX = false;
+            faceR = false;
         }
 
         if (SavedWeapon != null)
