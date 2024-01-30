@@ -18,6 +18,7 @@ public class PlayerController : MonoBehaviour
 
     Animator animator;
     [NonSerialized] public GameObject SavedWeapon;
+    public GameObject Sprite;
     public GameObject Arm;
     public GameObject ArmRotation;
     public GameObject PickupCollision;
@@ -35,7 +36,7 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
-        animator = this.GetComponent<Animator>();
+        animator = Sprite.GetComponent<Animator>();
     }
 
     void Update()
@@ -70,12 +71,12 @@ public class PlayerController : MonoBehaviour
 
         if(ArmRotation.GetComponent<ArmRotation>().faceR && !faceR)
         {
-            this.GetComponent<SpriteRenderer>().flipX = true;
+            Sprite.GetComponent<SpriteRenderer>().flipX = true;
             faceR = true;
         }
         else if(!ArmRotation.GetComponent<ArmRotation>().faceR && faceR)
         {
-            this.GetComponent<SpriteRenderer>().flipX = false;
+            Sprite.GetComponent<SpriteRenderer>().flipX = false;
             faceR = false;
         }
 
