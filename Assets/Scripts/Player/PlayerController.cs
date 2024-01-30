@@ -117,20 +117,16 @@ public class PlayerController : MonoBehaviour
     IEnumerator Attack()
     {
         Arm.GetComponent<Animator>().Play("WeaponAttack");
-        SavedWeapon.GetComponent<Weapon>().hitFlag = true;
         isAttacking = true;
         yield return new WaitForSeconds(0.25f);
-        SavedWeapon.GetComponent<Weapon>().hitFlag = false;
         isAttacking = false;
     }
 
     IEnumerator Headbutt()
     {
         animator.Play("HeadButt");
-        Head.GetComponent<PlayerHead>().hitFlag = true;
         isAttacking = true;
         yield return new WaitForSeconds(0.2f);
-        Head.GetComponent<PlayerHead>().hitFlag = false;
         isAttacking = false;
     }
 
@@ -140,7 +136,6 @@ public class PlayerController : MonoBehaviour
         isThrowing = true;
         yield return new WaitForSeconds(0.1f);
         SavedWeapon.GetComponent<Rigidbody2D>().velocity = new Vector2(MousePos.x - this.transform.position.x,MousePos.y - this.transform.position.y).normalized * throwStrength;
-        SavedWeapon.GetComponent<Weapon>().hitFlag = true;
         SavedWeapon.GetComponent<Weapon>().isThrown = true;
         SavedWeapon = null;
         isThrowing = false;
