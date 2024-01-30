@@ -54,11 +54,13 @@ public class GameManager : MonoBehaviour{
     public void NextWave() {
         switch (thisWave) {
             case 0:
-                UIManager.Instance.LaunchDialogue("Fin");
+                UIManager.Instance.LaunchDialogue("FinVague1");
                 break;
             case 1:
+                UIManager.Instance.LaunchDialogue("FinVague2");
                 break;
             case 2:
+                UIManager.Instance.LaunchDialogue("FinVague3");
                 break;
         }
         thisWave++;

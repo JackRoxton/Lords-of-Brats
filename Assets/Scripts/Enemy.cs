@@ -6,23 +6,30 @@ using UnityEngine;
 public class Enemy : MonoBehaviour {
     public Waves Type;
     public float Speed = 0.0f;
-    public List<Sprite> Sprites = new List<Sprite>();
+    public List<Sprite> KidsSprites = new List<Sprite>();
+    public List<Sprite> KidsHurtSprites = new List<Sprite>();
+    public List<Sprite> AdultsSprites = new List<Sprite>();
+    public List<Sprite> AdultsHurtSprites = new List<Sprite>();
+    public List<Sprite> PolicesSprites = new List<Sprite>();
+    public List<Sprite> PolicesHurtSprites = new List<Sprite>();
     public int Hp = 1;
     Vector3 direction;
-    int randomNumber;
+    int refSprite;
     void Start(){
         switch (Type) {
             case Waves.Kids:
-                randomNumber = 0;
+                refSprite = Random.Range(0,KidsSprites.Count);
+                gameObject.GetComponent<SpriteRenderer>().sprite = KidsSprites[refSprite];
                 break;
             case Waves.Parents:
-                randomNumber = 1;
+                refSprite = Random.Range(0, AdultsSprites.Count);
+                gameObject.GetComponent<SpriteRenderer>().sprite = AdultsSprites[refSprite];
                 break;
             case Waves.Polices:
-                randomNumber = 2;
+                refSprite = Random.Range(0, PolicesSprites.Count);
+                gameObject.GetComponent<SpriteRenderer>().sprite = PolicesSprites[refSprite];
                 break;
         }
-        gameObject.GetComponent<SpriteRenderer>().sprite = Sprites[randomNumber];
         gameObject.AddComponent<PolygonCollider2D>();
     }
     void Update(){

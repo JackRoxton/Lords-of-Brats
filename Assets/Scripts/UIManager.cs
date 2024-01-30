@@ -34,6 +34,7 @@ public class UIManager : MonoBehaviour {
         Instance = this;
         animator = GetComponent<Animator>();
         DialogBox.SetActive(false);
+        LaunchDialogue("Intro");
     }
     public void Update() {
         if (Input.GetKeyDown(KeyCode.I)) UIManager.Instance.LaunchDialogue("Intro");
