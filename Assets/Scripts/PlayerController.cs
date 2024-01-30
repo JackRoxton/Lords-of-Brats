@@ -80,7 +80,7 @@ public class PlayerController : MonoBehaviour
 
     public void GetHit()
     {
-        //mettre knockback
+        //knockback
         hp -= 1;
         if(hp <= 0)
         {
@@ -105,6 +105,7 @@ public class PlayerController : MonoBehaviour
         yield return new WaitForSeconds(0.1f);
         SavedWeapon.GetComponent<Rigidbody2D>().velocity = new Vector2(MousePos.x - this.transform.position.x,MousePos.y - this.transform.position.y).normalized * throwStrength;
         SavedWeapon.GetComponent<Weapon>().hitFlag = true;
+        SavedWeapon.GetComponent<Weapon>().isThrown = true;
         SavedWeapon = null;
         isThrowing = false;
     }
