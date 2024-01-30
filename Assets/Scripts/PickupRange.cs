@@ -14,6 +14,7 @@ public class PickupRange : MonoBehaviour
         {
             Player.SavedWeapon = collision.gameObject;
             Player.SavedWeapon.tag = "Weapon";
+            Player.SavedWeapon.GetComponent<Weapon>().ChangeSprite();
         }
     }
 }
