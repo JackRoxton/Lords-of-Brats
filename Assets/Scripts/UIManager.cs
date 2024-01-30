@@ -26,6 +26,8 @@ public class UIManager : MonoBehaviour {
     public Queue<dialogueStruct> sentences;
     public Dialogue[] dictionnary;
 
+    public GameObject MainMenu;
+    public GameObject Ending;
     public GameObject DialogBox;
     public TextMeshProUGUI sentenceText;
     bool antiSpeed = true;
