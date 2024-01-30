@@ -36,10 +36,7 @@ public class UIManager : MonoBehaviour {
         DialogBox.SetActive(false);
     }
     public void Update() {
-        if (Input.GetKeyDown(KeyCode.I)) {
-            UIManager.Instance.LaunchDialogue("Intro");
-            Debug.Log("t");
-        }
+        if (Input.GetKeyDown(KeyCode.I)) UIManager.Instance.LaunchDialogue("Intro");
         if (Input.GetKeyDown(KeyCode.F)) UIManager.Instance.LaunchDialogue("Fin");
     }
 

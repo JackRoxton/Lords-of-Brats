@@ -3,9 +3,8 @@ using System.Collections.Generic;
 using System.Security.Cryptography;
 using Unity.VisualScripting;
 using UnityEngine;
-public enum EnemyType { Kid, Parent, Police }
 public class Enemy : MonoBehaviour {
-    public EnemyType Type;
+    public Waves Type;
     public float Speed = 0.0f;
     public List<Sprite> Sprites = new List<Sprite>();
     public int Hp = 1;
@@ -13,13 +12,13 @@ public class Enemy : MonoBehaviour {
     int randomNumber;
     void Start(){
         switch (Type) {
-            case EnemyType.Kid:
+            case Waves.Kids:
                 randomNumber = 0;
                 break;
-            case EnemyType.Parent:
+            case Waves.Parents:
                 randomNumber = 1;
                 break;
-            case EnemyType.Police:
+            case Waves.Polices:
                 randomNumber = 2;
                 break;
         }
@@ -33,6 +32,9 @@ public class Enemy : MonoBehaviour {
         Hp -= dmg;
         if(Hp < 0)
         {
+            GameManager.Instance.Enemies.Remove(gameObject);
+            if (GameManager.Instance.waves[GameManager.Instance.thisWave].ennemies <= 0 &&
+                                GameManager.Instance.Enemies.Count <= 0) GameManager.Instance.NextWave();
             Destroy(this.gameObject);
         }
     }

@@ -3,13 +3,20 @@ using System.Collections.Generic;
 using UnityEngine;
 public enum SpawnMode { ChainSpawn, PrecisSpawn }
 public enum Waves { Kids, Parents, Polices }
+[System.Serializable]
+public class Wave {
+    public Waves wave;
+    public int ennemies;
+}
 public class GameManager : MonoBehaviour{
     public static GameManager Instance;
     public SpawnMode spawnMode;
-    public Waves wave;
+    public List<Wave> waves;
     public List<Spawner> Spawners = new List<Spawner>();
     public GameObject EnemyObject;
+    public List<GameObject> Enemies = new List<GameObject>();
     public float ChainSpawnTime;
+    [HideInInspector] public int thisWave = 0;
     float chainSpawnTimer = 0;
     List<float> timers = new List<float>();
     private void Awake() {
@@ -22,7 +29,7 @@ public class GameManager : MonoBehaviour{
                 chainSpawnTimer += Time.deltaTime;
                 if (chainSpawnTimer >= ChainSpawnTime) {
                     chainSpawnTimer = 0;
-                    SpawnEnemy(Random.Range(0, Spawners.Count));
+                    SpawnEnemy(Spawners[Random.Range(0, Spawners.Count)]);
                 }
                 break;
             case SpawnMode.PrecisSpawn:
@@ -30,15 +37,19 @@ public class GameManager : MonoBehaviour{
                     timers[i] += Time.deltaTime;
                     if (timers[i] > Spawners[i].SpawnTime) {
                         timers[i] = 0;
-                        SpawnEnemy(i);
+                        SpawnEnemy(Spawners[i]);
                     }
                 }
                 break;
         }
     }
-    void SpawnEnemy(int index) {
-        GameObject settings = Instantiate(EnemyObject, Spawners[index].transform.position, Quaternion.identity);
-        settings.GetComponent<Enemy>().Type = (EnemyType)Random.Range(0, 3);
-        settings.GetComponent<Enemy>().Speed = 2;
+    void SpawnEnemy(Spawner spawner) {
+        Enemies.Add(Instantiate(EnemyObject, spawner.transform.position, Quaternion.identity));
+        Enemies[Enemies.Count].GetComponent<Enemy>().Type = waves[thisWave].wave;
+        Enemies[Enemies.Count].GetComponent<Enemy>().Speed = 2;
+    }
+    public void NextWave() {
+        thisWave++;
+        UIManager.Instance.LaunchDialogue("Fin");
     }
 }
