@@ -8,6 +8,7 @@ public class Enemy : MonoBehaviour {
     public EnemyType Type;
     public float Speed = 0.0f;
     public List<Sprite> Sprites = new List<Sprite>();
+    public int Hp = 1;
     Vector3 direction;
     int randomNumber;
     void Start(){
@@ -28,7 +29,11 @@ public class Enemy : MonoBehaviour {
         direction = new Vector3(0,0,0) - transform.position;
         transform.Translate(direction.normalized * Speed * Time.deltaTime);
     }
-    public void GetHit() {
-
+    public void GetHit(int dmg) {
+        Hp -= dmg;
+        if(Hp < 0)
+        {
+            Destroy(this.gameObject);
+        }
     }
 }
