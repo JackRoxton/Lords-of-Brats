@@ -7,8 +7,8 @@ public class SoundManager : MonoBehaviour {
     public AudioSource Music;
     public AudioClip Song;
     private void Awake() {
-        /*Instance = this;
-        Music.clip = Song;
+        Instance = this;
+        /*Music.clip = Song;
         Music.time = 0;
         Music.Play();*/
     }
