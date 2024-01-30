@@ -5,15 +5,17 @@ using UnityEngine;
 
 public class Weapon : MonoBehaviour
 {
+    GameObject Owner;
     public Sprite Sprite;
     public Sprite pickeUpSprite;
     [NonSerialized] public bool hitFlag = false;
     public int dmg = 1;
-    public float strength = 5f;
+    float strength = 250f;
     [NonSerialized] public bool isThrown = false;
 
-    public void ChangeSprite()
+    public void ChangeSprite(GameObject newOwner)
     {
+        Owner = newOwner;
         this.GetComponent<SpriteRenderer>().sprite = pickeUpSprite;
     }
 
@@ -29,8 +31,8 @@ public class Weapon : MonoBehaviour
         Enemy enemy = collision.gameObject.GetComponent<Enemy>();
         if(enemy != null)
         {
-            enemy.GetHit(dmg);
-            enemy.GetComponent<Rigidbody2D>().AddForce(new Vector2(this.transform.position.x-enemy.transform.position.x,this.transform.position.y-enemy.transform.position.y).normalized * strength);
+            Vector2 kb = new Vector2(enemy.transform.position.x - Owner.transform.position.x, enemy.transform.position.y - Owner.transform.position.y).normalized;
+            enemy.GetHit(dmg, kb * strength);
             if(isThrown) Destroy(this.gameObject);
         }
     }
