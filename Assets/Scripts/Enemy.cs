@@ -13,6 +13,7 @@ public class Enemy : MonoBehaviour {
     public List<Sprite> PolicesSprites = new List<Sprite>();
     public List<Sprite> PolicesHurtSprites = new List<Sprite>();
     public int Hp = 1;
+    public bool Stop = false;
     Vector3 direction;
     int refSprite;
     void Start(){
@@ -20,23 +21,46 @@ public class Enemy : MonoBehaviour {
             case Waves.Kids:
                 refSprite = Random.Range(0,KidsSprites.Count);
                 gameObject.GetComponent<SpriteRenderer>().sprite = KidsSprites[refSprite];
+                Hp = 2;
                 break;
             case Waves.Parents:
                 refSprite = Random.Range(0, AdultsSprites.Count);
                 gameObject.GetComponent<SpriteRenderer>().sprite = AdultsSprites[refSprite];
+                Hp = 2;
                 break;
             case Waves.Polices:
                 refSprite = Random.Range(0, PolicesSprites.Count);
                 gameObject.GetComponent<SpriteRenderer>().sprite = PolicesSprites[refSprite];
+                Hp = 3;
                 break;
         }
         gameObject.AddComponent<PolygonCollider2D>();
     }
     void Update(){
-        direction = new Vector3(0,0,0) - transform.position;
-        transform.Translate(direction.normalized * Speed * Time.deltaTime);
+        this.GetComponent<Rigidbody2D>().velocity *= 0.99f;
+        if (Stop)
+        {
+            return;
+        }
+        //direction = new Vector3(0,0,0) - transform.position;
+        //transform.Translate(direction.normalized * Speed * Time.deltaTime);
+        transform.position = Vector2.MoveTowards(this.transform.position,Vector2.zero,Speed * Time.deltaTime);
     }
-    public void GetHit(int dmg) {
+
+    IEnumerator StopDuration()
+    {
+        Stop = true;
+        yield return new WaitForSeconds(1f);
+        Stop = false;
+    }
+
+    public void GetHit(int dmg, Vector2 kb) {
+
+        StopAllCoroutines();//
+
+        StartCoroutine(StopDuration());
+        this.GetComponent<Rigidbody2D>().AddForce(kb);
+        Debug.Log(kb);
         Hp -= dmg;
         if(Hp < 0)
         {
