@@ -6,6 +6,7 @@ using UnityEngine;
 public class Enemy : MonoBehaviour {
     public Waves Type;
     public float Speed = 0.0f;
+    public List<GameObject> Loot;
     public List<Sprite> KidsSprites = new List<Sprite>();
     public List<Sprite> KidsHurtSprites = new List<Sprite>();
     public List<Sprite> AdultsSprites = new List<Sprite>();
@@ -67,6 +68,23 @@ public class Enemy : MonoBehaviour {
             GameManager.Instance.Enemies.Remove(gameObject);
             if (GameManager.Instance.waves[GameManager.Instance.thisWave].enemies <= 0 &&
                                 GameManager.Instance.Enemies.Count <= 0) GameManager.Instance.NextWave();
+
+            if(Random.Range(0,100) >= 90)
+            {
+                switch (Type)
+                {
+                    case Waves.Kids:
+                        Instantiate(Loot[Random.Range(0,2)],this.transform.position,Quaternion.identity);
+                        break;
+                    case Waves.Parents:
+                        Instantiate(Loot[2], this.transform.position, Quaternion.identity);
+                        break;
+                    case Waves.Polices:
+                        Instantiate(Loot[3], this.transform.position, Quaternion.identity);
+                        break;
+                }
+            }
+
             Destroy(this.gameObject);
         }
     }

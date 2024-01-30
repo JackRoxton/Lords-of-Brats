@@ -100,6 +100,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Type: 0
   Speed: 1
+  Loot:
+  - {fileID: 5197469678211115526, guid: c4cdfdb39f63f51458250038f1a98168, type: 3}
+  - {fileID: 575723497174874652, guid: f458d296a9540e841ab38e2d4d65907c, type: 3}
+  - {fileID: 51463785555371055, guid: fb0eb05caf473824098d82b5046df7ac, type: 3}
+  - {fileID: 7927209512246561523, guid: 13e37201a76916f4ba06f7434f7947df, type: 3}
   KidsSprites:
   - {fileID: 21300000, guid: 05c0b64d8f3d8cc45bc6e3a064710305, type: 3}
   - {fileID: 21300000, guid: f2ba8c6cea0cf0b48830a2038f0ebdde, type: 3}
@@ -145,6 +150,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: d1bb35cf45acb7e49ae007a4934b0f35, type: 3}
   - {fileID: 21300000, guid: 4eccdaf355500464fa34b8f8b4d10170, type: 3}
   Hp: 1
+  Stop: 0
 --- !u!50 &6135371068716354461
 Rigidbody2D:
   serializedVersion: 4
