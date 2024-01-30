@@ -12,7 +12,7 @@ public class SoundManager : MonoBehaviour {
         Music.time = 0;
         Music.Play();*/
     }
-    public void SwitchSong(AudioClip nuSong, float nuSongStartTime) {
+    public void SwitchSong(AudioClip nuSong, float nuSongStartTime = 0) {
         Music.Stop();
         Music.time = nuSongStartTime;
         Music.clip = nuSong;
