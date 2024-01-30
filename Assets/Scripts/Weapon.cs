@@ -9,6 +9,7 @@ public class Weapon : MonoBehaviour
     public Sprite pickeUpSprite;
     [NonSerialized] public bool hitFlag = false;
     public int dmg = 1;
+    public float strength = 5f;
     [NonSerialized] public bool isThrown = false;
 
     public void ChangeSprite()
@@ -29,7 +30,7 @@ public class Weapon : MonoBehaviour
         if(enemy != null)
         {
             enemy.GetHit(dmg);
-            enemy.GetComponent<Rigidbody2D>().AddForce(new Vector2(this.transform.position.x-enemy.transform.position.x,this.transform.position.y-enemy.transform.position.y));
+            enemy.GetComponent<Rigidbody2D>().AddForce(new Vector2(this.transform.position.x-enemy.transform.position.x,this.transform.position.y-enemy.transform.position.y).normalized * strength);
             if(isThrown) Destroy(this.gameObject);
         }
     }
