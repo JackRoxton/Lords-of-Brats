@@ -28,4 +28,7 @@ public class Enemy : MonoBehaviour {
         direction = new Vector3(0,0,0) - transform.position;
         transform.Translate(direction.normalized * Speed * Time.deltaTime);
     }
+    public void GetHit() {
+
+    }
 }
