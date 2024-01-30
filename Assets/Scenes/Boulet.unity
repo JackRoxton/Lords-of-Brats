@@ -490,6 +490,7 @@ MonoBehaviour:
   - key: Intro
     dialogues:
     - sentence: Salut c'est moi Timmie
+    - sentence: J'aime battre ma soeur
   - key: Fin
     dialogues:
     - sentence: C'est tout ce que tu vaux?
