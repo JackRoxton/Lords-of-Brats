@@ -8,6 +8,14 @@ public class PlayerHead : MonoBehaviour
     [NonSerialized] public bool hitFlag = false;
     int dmg = 1;
     float strength = 50f;
+
+    IEnumerator HitFlagCD()
+    {
+        hitFlag = false;
+        yield return new WaitForSeconds(0.1f);
+        hitFlag = true;
+    }
+
     private void OnTriggerStay2D(Collider2D collision)
     {
         if (!hitFlag) return;
@@ -17,6 +25,7 @@ public class PlayerHead : MonoBehaviour
         if (enemy != null)
         {
             enemy.GetHit(dmg, new Vector2(this.transform.position.x - enemy.transform.position.x, this.transform.position.y - enemy.transform.position.y).normalized * strength);
+            StartCoroutine(HitFlagCD());
         }
     }
 }

@@ -73,13 +73,15 @@ public class PlayerController : MonoBehaviour
         {
             Sprite.GetComponent<SpriteRenderer>().flipX = true;
             faceR = true;
-            SavedWeapon.transform.localScale = new Vector3(-1,-1,1);
+            if(SavedWeapon != null)
+                SavedWeapon.transform.localScale = new Vector3(-1,-1,1);
         }
         else if(!ArmRotation.GetComponent<ArmRotation>().faceR && faceR)
         {
             Sprite.GetComponent<SpriteRenderer>().flipX = false;
             faceR = false;
-            SavedWeapon.transform.localScale = new Vector3(-1, 1, 1);
+            if (SavedWeapon != null)
+                SavedWeapon.transform.localScale = new Vector3(-1, 1, 1);
         }
 
         if (SavedWeapon != null)
