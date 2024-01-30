@@ -17,12 +17,12 @@ public class ArmRotation : MonoBehaviour
 
         if (mousePos.x < player.transform.position.x && faceR)
         {
-            this.transform.localScale = new Vector3(this.transform.localScale.x, -this.transform.localScale.y, -this.transform.localScale.z);
+            this.transform.localScale = new Vector3(this.transform.localScale.x, -this.transform.localScale.y, this.transform.localScale.z);
             faceR = false;
         }
         else if (mousePos.x >= player.transform.position.x && !faceR)
         {
-            this.transform.localScale = new Vector3(this.transform.localScale.x, -this.transform.localScale.y, -this.transform.localScale.z);
+            this.transform.localScale = new Vector3(this.transform.localScale.x, -this.transform.localScale.y, this.transform.localScale.z);
             faceR = true;
         }
     }

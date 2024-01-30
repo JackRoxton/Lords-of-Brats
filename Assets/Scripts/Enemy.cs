@@ -57,7 +57,7 @@ public class Enemy : MonoBehaviour {
 
     public void GetHit(int dmg, Vector2 kb) {
 
-        StopAllCoroutines();//
+        //StopAllCoroutines();
 
         Camera.main.GetComponent<CameraScript>().ScreenShake();
         Camera.main.GetComponent<CameraScript>().HitStop();

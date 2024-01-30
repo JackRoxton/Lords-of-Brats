@@ -8,7 +8,7 @@ public class PlayerHead : MonoBehaviour
     [NonSerialized] public bool hitFlag = false;
     int dmg = 1;
     float strength = 50f;
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerStay2D(Collider2D collision)
     {
         if (!hitFlag) return;
         if (collision == null) return;

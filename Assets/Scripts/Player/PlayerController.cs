@@ -9,7 +9,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     Vector3 Movement;
-    float speed = 10f;
+    float speed = 7.5f;
     float throwStrength = 10f;
     int hp = 3;
     Vector2 MousePos;
@@ -73,18 +73,19 @@ public class PlayerController : MonoBehaviour
         {
             Sprite.GetComponent<SpriteRenderer>().flipX = true;
             faceR = true;
+            SavedWeapon.transform.localScale = new Vector3(-1,-1,1);
         }
         else if(!ArmRotation.GetComponent<ArmRotation>().faceR && faceR)
         {
             Sprite.GetComponent<SpriteRenderer>().flipX = false;
             faceR = false;
+            SavedWeapon.transform.localScale = new Vector3(-1, 1, 1);
         }
 
         if (SavedWeapon != null)
         {
             SavedWeapon.transform.position = Arm.transform.position;
             SavedWeapon.transform.rotation = Arm.transform.rotation;
-            SavedWeapon.transform.localScale = ArmRotation.transform.localScale;
         }
 
     }
@@ -129,7 +130,10 @@ public class PlayerController : MonoBehaviour
     IEnumerator Headbutt()
     {
         Head.GetComponent<PlayerHead>().hitFlag = true;
-        animator.Play("HeadButt");
+        if(faceR)
+            animator.Play("HeadButtR");
+        else
+            animator.Play("HeadButtL");
         isAttacking = true;
         yield return new WaitForSeconds(0.2f);
         Head.GetComponent<PlayerHead>().hitFlag = false;

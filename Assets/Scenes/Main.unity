@@ -979,6 +979,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5197469678211115531, guid: c4cdfdb39f63f51458250038f1a98168, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5197469678211115531, guid: c4cdfdb39f63f51458250038f1a98168, type: 3}
       propertyPath: m_LocalScale.y
       value: 1
       objectReference: {fileID: 0}
@@ -1190,8 +1194,17 @@ MonoBehaviour:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
-      time: 0.00064849854
-      value: 0.0004081726
+      time: -0.0066337883
+      value: 0.99696904
+      inSlope: -7.00411
+      outSlope: -7.00411
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.10206777
+    - serializedVersion: 3
+      time: 0.17458832
+      value: 0.011506885
       inSlope: 0
       outSlope: 0
       tangentMode: 136
@@ -1199,22 +1212,13 @@ MonoBehaviour:
       inWeight: 0.33333334
       outWeight: 0.33333334
     - serializedVersion: 3
-      time: 0.04823029
-      value: 0.19760308
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 136
+      time: 0.35217476
+      value: 1.0021005
+      inSlope: 7.2675414
+      outSlope: 7.2675414
+      tangentMode: 0
       weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 0.0993215
-      value: 0.00016987324
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 136
-      weightedMode: 0
-      inWeight: 0.33333334
+      inWeight: 0.1110906
       outWeight: 0.33333334
     m_PreInfinity: 2
     m_PostInfinity: 2
@@ -1226,6 +1230,34 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3332243853209047705, guid: ece3ffa301bbec643bf45d780f90c3ff, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3332243853209047705, guid: ece3ffa301bbec643bf45d780f90c3ff, type: 3}
+      propertyPath: m_LocalScale.y
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3332243853209047705, guid: ece3ffa301bbec643bf45d780f90c3ff, type: 3}
+      propertyPath: m_LocalScale.z
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3332243853209047705, guid: ece3ffa301bbec643bf45d780f90c3ff, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3332243853209047705, guid: ece3ffa301bbec643bf45d780f90c3ff, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3332243853209047705, guid: ece3ffa301bbec643bf45d780f90c3ff, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3332243853209047705, guid: ece3ffa301bbec643bf45d780f90c3ff, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3332243853571753977, guid: ece3ffa301bbec643bf45d780f90c3ff, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -1273,6 +1305,22 @@ PrefabInstance:
     - target: {fileID: 3332243853571753979, guid: ece3ffa301bbec643bf45d780f90c3ff, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 3332243854485281119, guid: ece3ffa301bbec643bf45d780f90c3ff, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3332243854562261244, guid: ece3ffa301bbec643bf45d780f90c3ff, type: 3}
+      propertyPath: m_Size.x
+      value: 1.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3332243854562261244, guid: ece3ffa301bbec643bf45d780f90c3ff, type: 3}
+      propertyPath: m_Size.y
+      value: 1.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3332243854562261246, guid: ece3ffa301bbec643bf45d780f90c3ff, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ece3ffa301bbec643bf45d780f90c3ff, type: 3}

@@ -12,6 +12,7 @@ public class PickupRange : MonoBehaviour
 
         if (collision.gameObject.tag == "Pickable" && Player.pickingUp)
         {
+            if (Player.SavedWeapon != null) return;
             Player.SavedWeapon = collision.gameObject;
             Player.SavedWeapon.tag = "Weapon";
             Player.SavedWeapon.GetComponent<Weapon>().ChangeSprite(Player.gameObject);
