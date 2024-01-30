@@ -342,10 +342,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnMode: 0
-  wave: 0
+  waves:
+  - wave: 0
+    enemies: 28
+  - wave: 1
+    enemies: 14
   Spawners: []
   EnemyObject: {fileID: 6460463181049596981, guid: 9443632f781961242990f9b7f31ca0b2, type: 3}
+  Enemies: []
   ChainSpawnTime: 0.3
+  thisWave: 0
 --- !u!114 &7538735323555113029
 MonoBehaviour:
   m_ObjectHideFlags: 0

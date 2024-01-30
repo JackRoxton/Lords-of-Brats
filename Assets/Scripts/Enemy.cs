@@ -33,7 +33,7 @@ public class Enemy : MonoBehaviour {
         if(Hp < 0)
         {
             GameManager.Instance.Enemies.Remove(gameObject);
-            if (GameManager.Instance.waves[GameManager.Instance.thisWave].ennemies <= 0 &&
+            if (GameManager.Instance.waves[GameManager.Instance.thisWave].enemies <= 0 &&
                                 GameManager.Instance.Enemies.Count <= 0) GameManager.Instance.NextWave();
             Destroy(this.gameObject);
         }

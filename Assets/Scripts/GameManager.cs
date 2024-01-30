@@ -6,7 +6,7 @@ public enum Waves { Kids, Parents, Polices }
 [System.Serializable]
 public class Wave {
     public Waves wave;
-    public int ennemies;
+    public int enemies;
 }
 public class GameManager : MonoBehaviour{
     public static GameManager Instance;
@@ -24,29 +24,32 @@ public class GameManager : MonoBehaviour{
         for (int i = 0; i < Spawners.Count; i++) timers.Add(0);
     }
     void Update(){
-        switch (spawnMode) {
-            case SpawnMode.ChainSpawn:
-                chainSpawnTimer += Time.deltaTime;
-                if (chainSpawnTimer >= ChainSpawnTime) {
-                    chainSpawnTimer = 0;
-                    SpawnEnemy(Spawners[Random.Range(0, Spawners.Count)]);
-                }
-                break;
-            case SpawnMode.PrecisSpawn:
-                for (int i = 0; i < timers.Count; i++) {
-                    timers[i] += Time.deltaTime;
-                    if (timers[i] > Spawners[i].SpawnTime) {
-                        timers[i] = 0;
-                        SpawnEnemy(Spawners[i]);
+        while (waves[thisWave].enemies > 0) {
+            switch (spawnMode) {
+                case SpawnMode.ChainSpawn:
+                    chainSpawnTimer += Time.deltaTime;
+                    if (chainSpawnTimer >= ChainSpawnTime) {
+                        chainSpawnTimer = 0;
+                        SpawnEnemy(Spawners[Random.Range(0, Spawners.Count)]);
                     }
-                }
-                break;
+                    break;
+                case SpawnMode.PrecisSpawn:
+                    for (int i = 0; i < timers.Count; i++) {
+                        timers[i] += Time.deltaTime;
+                        if (timers[i] > Spawners[i].SpawnTime) {
+                            timers[i] = 0;
+                            SpawnEnemy(Spawners[i]);
+                        }
+                    }
+                    break;
+            }
         }
     }
     void SpawnEnemy(Spawner spawner) {
         Enemies.Add(Instantiate(EnemyObject, spawner.transform.position, Quaternion.identity));
-        Enemies[Enemies.Count].GetComponent<Enemy>().Type = waves[thisWave].wave;
-        Enemies[Enemies.Count].GetComponent<Enemy>().Speed = 2;
+        Enemies[Enemies.Count - 1].GetComponent<Enemy>().Type = waves[thisWave].wave;
+        Enemies[Enemies.Count - 1].GetComponent<Enemy>().Speed = 2;
+        waves[thisWave].enemies--;
     }
     public void NextWave() {
         thisWave++;
