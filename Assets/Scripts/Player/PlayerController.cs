@@ -107,6 +107,7 @@ public class PlayerController : MonoBehaviour
     public void GetHit(int dmg)
     {
         //knockback
+        animator.Play("PlayerHurt");
         hp -= dmg;
         if(hp <= 0)
         {
@@ -119,7 +120,7 @@ public class PlayerController : MonoBehaviour
         SavedWeapon.GetComponent<Weapon>().hitFlag = true;
         Arm.GetComponent<Animator>().Play("WeaponAttack");
         isAttacking = true;
-        yield return new WaitForSeconds(0.25f);
+        yield return new WaitForSeconds(0.2f);
         SavedWeapon.GetComponent<Weapon>().hitFlag = false;
         isAttacking = false;
     }
@@ -140,6 +141,7 @@ public class PlayerController : MonoBehaviour
         isThrowing = true;
         yield return new WaitForSeconds(0.1f);
         SavedWeapon.GetComponent <Weapon>().hitFlag = true;
+        SavedWeapon.GetComponent<Weapon>().Throw();
         SavedWeapon.GetComponent<Rigidbody2D>().velocity = new Vector2(MousePos.x - this.transform.position.x,MousePos.y - this.transform.position.y).normalized * throwStrength;
         SavedWeapon = null;
         isThrowing = false;
