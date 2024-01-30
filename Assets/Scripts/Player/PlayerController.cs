@@ -40,7 +40,7 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        //if (State == GameState.Pause) return;
+        if(State == GameState.Pause) return;
         if(Input.GetMouseButtonDown(0))
         {
             if(isAttacking) return;
