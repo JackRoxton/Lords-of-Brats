@@ -38,7 +38,7 @@ public class Enemy : MonoBehaviour {
         gameObject.AddComponent<PolygonCollider2D>();
     }
     void Update(){
-        this.GetComponent<Rigidbody2D>().velocity *= 0.99f;
+        this.GetComponent<Rigidbody2D>().velocity *= 0.98f;
         if (Stop)
         {
             return;
@@ -59,9 +59,12 @@ public class Enemy : MonoBehaviour {
 
         StopAllCoroutines();//
 
+        Camera.main.GetComponent<CameraScript>().ScreenShake();
+        Camera.main.GetComponent<CameraScript>().HitStop();
+
         StartCoroutine(StopDuration());
         this.GetComponent<Rigidbody2D>().AddForce(kb);
-        Debug.Log(kb);
+        //Debug.Log(kb);
         Hp -= dmg;
         if(Hp < 0)
         {

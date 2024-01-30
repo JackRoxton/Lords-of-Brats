@@ -10,7 +10,7 @@ public class Weapon : MonoBehaviour
     public Sprite pickeUpSprite;
     [NonSerialized] public bool hitFlag = false;
     public int dmg = 1;
-    float strength = 250f;
+    float strength = 1000f;
     [NonSerialized] public bool isThrown = false;
 
     public void ChangeSprite(GameObject newOwner)
