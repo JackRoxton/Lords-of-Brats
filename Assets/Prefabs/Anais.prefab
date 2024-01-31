@@ -141,7 +141,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8fbf317ea2d3fd2408d8fd5d9d2fb94b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Speed: 1
+  Speed: 1.5
   Sprite: {fileID: 21300000, guid: 9550787d5942c5b43ae57c52f79d6733, type: 3}
   HurtSprite: {fileID: 21300000, guid: ad84ebfb8d68b1042aab6de98563b10a, type: 3}
   EvilSprite: {fileID: 21300000, guid: 9550787d5942c5b43ae57c52f79d6733, type: 3}

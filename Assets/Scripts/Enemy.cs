@@ -79,9 +79,9 @@ public class Enemy : MonoBehaviour {
                 this.GetComponent<SpriteRenderer>().sprite = PolicesHurtSprites[refSprite];
                 break;
         }
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForSeconds(0.3f);
         hitFlag = true;
-        yield return new WaitForSeconds(0.9f);
+        yield return new WaitForSeconds(0.7f);
         this.GetComponent<Animator>().enabled = true;
         Stop = false;
         switch (Type)

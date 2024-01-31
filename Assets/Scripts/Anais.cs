@@ -53,9 +53,9 @@ public class Anais : MonoBehaviour
 
         this.GetComponent<SpriteRenderer>().sprite = HurtSprite;
 
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForSeconds(0.3f);
         hitFlag = true;
-        yield return new WaitForSeconds(0.9f);
+        yield return new WaitForSeconds(0.7f);
         this.GetComponent<Animator>().enabled = true;
         Stop = false;
         this.GetComponent<SpriteRenderer>().sprite = Sprite;
