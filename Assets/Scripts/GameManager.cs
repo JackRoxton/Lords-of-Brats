@@ -46,9 +46,8 @@ public class GameManager : MonoBehaviour{
     public void NextWave() {
         State = GameState.Pause;
         UIManager.Instance.PlayAnimation(thisWave + 1);
-        thisWave++;
-        
-    }
+        thisWave++;    
+    }   
     private IEnumerator PlayTimeline(int anim) {
         switch (anim) {
             case 0:
