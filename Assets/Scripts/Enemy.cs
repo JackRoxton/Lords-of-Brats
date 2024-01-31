@@ -91,6 +91,8 @@ public class Enemy : MonoBehaviour {
         if(!hitFlag) return;
         StopAllCoroutines();
 
+        SoundManager.Instance.Play("Punch");
+
         Camera.main.GetComponent<CameraScript>().ScreenShake();
         Camera.main.GetComponent<CameraScript>().HitStop();
 
