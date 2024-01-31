@@ -7,7 +7,6 @@ using UnityEngine.Audio;
 
 public class SoundManager : Singleton<SoundManager>
 {
-
     public Sound[] soundsEffects;
     public Sound[] musics;
 
