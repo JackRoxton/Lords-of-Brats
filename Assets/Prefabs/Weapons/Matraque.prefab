@@ -101,7 +101,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Sprite: {fileID: 21300000, guid: cfd6850f65bd2d44292f450c0ed1bab2, type: 3}
   pickeUpSprite: {fileID: 21300000, guid: c88a396c6bbb1dd4297e66c8313b8a14, type: 3}
-  dmg: 1
+  dmg: 2
 --- !u!61 &7927209512246561535
 BoxCollider2D:
   m_ObjectHideFlags: 0
