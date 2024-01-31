@@ -45,9 +45,17 @@ public class GameManager : MonoBehaviour{
     }
     public void NextWave() {
         State = GameState.Pause;
+        UIManager.Instance.SwitchActiveObject(UIManager.Instance.Pause);
+        if (thisWave == 2) {
+            Player.transform.position = Vector3.zero;
+            PlayAnimation(1);
+        }
         UIManager.Instance.PlayAnimation(thisWave + 1);
         thisWave++;    
     }   
+    public void ChangeState(int state) {
+        State = (GameState)state;
+    }
     private IEnumerator PlayTimeline(int anim) {
         switch (anim) {
             case 0:
@@ -60,7 +68,7 @@ public class GameManager : MonoBehaviour{
             case 1:
                 EndingAnimation.Play();
                 yield return new WaitForSeconds((float)EndingAnimation.duration);
-                UIManager.Instance.ChangeSceneState(UIManager.Instance.Ending);
+                UIManager.Instance.SwitchActiveObject(UIManager.Instance.Ending);
                 yield break;
         }
 
