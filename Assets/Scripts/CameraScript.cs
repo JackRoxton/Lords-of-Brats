@@ -8,7 +8,7 @@ public class CameraScript : MonoBehaviour
     public AnimationCurve shake;
 
     public AnimationCurve hitStop;
-    float hitStopLength = 0.35f;
+    float hitStopLength = 0.5f;
 
     bool inShake = false;
     Vector3 startPos = Vector3.zero;
