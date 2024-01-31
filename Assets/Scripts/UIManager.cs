@@ -28,6 +28,10 @@ public class UIManager : MonoBehaviour {
     [Header("UI Assets")]
     public GameObject MainMenu;
     public GameObject Ending;
+    public GameObject Credits;
+    public GameObject Play;
+    public GameObject Pause;
+    public GameObject Guide;
     public GameObject DialogBox;
     public TMP_Text Wave;
 
@@ -96,14 +100,15 @@ public class UIManager : MonoBehaviour {
         Wave.text = "Wave " + (anim + 1);
         WaveAnimation.Play();
         yield return new WaitForSeconds((float)WaveAnimation.duration);
-        if (anim == 2) GameManager.Instance.Player.transform.position = Vector3.zero;
-        else GameManager.Instance.State = GameState.Game;
+        GameManager.Instance.State = GameState.Game;
+        SwitchActiveObject(Pause);
+        if (anim == 0) Guide.SetActive(true);
     }
     public void PlayAnimation(int anim) {
         StopAllCoroutines();
         StartCoroutine(PlayTimeline(anim));
     }
-    public void ChangeSceneState(GameObject scene) {
+    public void SwitchActiveObject(GameObject scene) {
         scene.SetActive(!scene.activeSelf);
     }
     public void Reload() {
