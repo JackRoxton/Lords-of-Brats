@@ -38,7 +38,7 @@ public class Weapon : MonoBehaviour
             if(isThrown) Destroy(this.gameObject);
         }
         Anais anais = collision.gameObject.GetComponent<Anais>();
-        if (enemy != null)
+        if (anais != null)
         {
             Vector2 kb = new Vector2(anais.transform.position.x - Owner.transform.position.x, anais.transform.position.y - Owner.transform.position.y).normalized;
             anais.GetHit(dmg, kb * strength);

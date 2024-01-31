@@ -210,6 +210,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 691846296295377195, guid: 7ea69e9cd2c6448429847430f14904ad, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 958492988012763300, guid: 7ea69e9cd2c6448429847430f14904ad, type: 3}
       propertyPath: m_text
       value: Next Wave
@@ -238,6 +242,22 @@ PrefabInstance:
       propertyPath: m_HorizontalAlignment
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 1194126063393787900, guid: 7ea69e9cd2c6448429847430f14904ad, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1578606676977541080, guid: 7ea69e9cd2c6448429847430f14904ad, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3257637518800847526, guid: 7ea69e9cd2c6448429847430f14904ad, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3377182499417739335, guid: 7ea69e9cd2c6448429847430f14904ad, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3763018474886507355, guid: 7ea69e9cd2c6448429847430f14904ad, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
       value: 3
@@ -250,7 +270,19 @@ PrefabInstance:
       propertyPath: m_hasFontAssetChanged
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4470599710607823252, guid: 7ea69e9cd2c6448429847430f14904ad, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5587333596545481908, guid: 7ea69e9cd2c6448429847430f14904ad, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7064704512198842431, guid: 7ea69e9cd2c6448429847430f14904ad, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7531650178712177962, guid: 7ea69e9cd2c6448429847430f14904ad, type: 3}
       propertyPath: m_hasFontAssetChanged
       value: 0
       objectReference: {fileID: 0}
@@ -646,6 +678,10 @@ PrefabInstance:
     - target: {fileID: 7926763516033995581, guid: 7ea69e9cd2c6448429847430f14904ad, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 395
+      objectReference: {fileID: 0}
+    - target: {fileID: 8667466850007161099, guid: 7ea69e9cd2c6448429847430f14904ad, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8764607097021534305, guid: 7ea69e9cd2c6448429847430f14904ad, type: 3}
       propertyPath: m_hasFontAssetChanged
