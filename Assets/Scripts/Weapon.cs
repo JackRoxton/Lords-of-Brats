@@ -6,6 +6,7 @@ using UnityEngine;
 public class Weapon : MonoBehaviour
 {
     GameObject Owner;
+    public GameObject Sparkle;
     public Sprite Sprite;
     public Sprite pickeUpSprite;
     [NonSerialized] public bool hitFlag = false;
@@ -15,6 +16,7 @@ public class Weapon : MonoBehaviour
 
     public void ChangeSprite(GameObject newOwner)
     {
+        Sparkle.SetActive(false);
         Owner = newOwner;
         this.GetComponent<SpriteRenderer>().sprite = pickeUpSprite;
     }
