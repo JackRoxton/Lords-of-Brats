@@ -125,7 +125,7 @@ public class PlayerController : MonoBehaviour
     IEnumerator HitFlagCD()
     {
         hitflag = false;
-        yield return new WaitForSeconds(0.2f);
+        yield return new WaitForSeconds(0.5f);
         hitflag = true;
     }
 
