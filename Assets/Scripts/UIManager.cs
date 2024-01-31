@@ -96,8 +96,8 @@ public class UIManager : MonoBehaviour {
         Wave.text = "Wave " + (anim + 1);
         WaveAnimation.Play();
         yield return new WaitForSeconds((float)WaveAnimation.duration);
-        GameManager.Instance.State = GameState.Game;
-
+        if (anim == 2) GameManager.Instance.Player.transform.position = Vector3.zero;
+        else GameManager.Instance.State = GameState.Game;
     }
     public void PlayAnimation(int anim) {
         StopAllCoroutines();
