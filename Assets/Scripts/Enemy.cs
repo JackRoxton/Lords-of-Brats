@@ -39,14 +39,15 @@ public class Enemy : MonoBehaviour {
         gameObject.AddComponent<PolygonCollider2D>();
     }
     void Update(){
-        this.GetComponent<Rigidbody2D>().velocity *= 0.98f;
-        if (Stop)
-        {
-            return;
+        if(GameManager.Instance.State == GameState.Game) {
+            this.GetComponent<Rigidbody2D>().velocity *= 0.98f;
+            if (Stop) {
+                return;
+            }
+            /*direction = new Vector3(0,0,0) - transform.position;
+            transform.Translate(direction.normalized * Speed * Time.deltaTime);*/
+            transform.position = Vector2.MoveTowards(this.transform.position, GameManager.Instance.Player.transform.position, Speed * Time.deltaTime);
         }
-        /*direction = new Vector3(0,0,0) - transform.position;
-        transform.Translate(direction.normalized * Speed * Time.deltaTime);*/
-        transform.position = Vector2.MoveTowards(this.transform.position,Vector2.zero/*player here*/,Speed * Time.deltaTime);
     }
 
     IEnumerator StopDuration()

@@ -2,8 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Playables;
-
-public enum SpawnMode { ChainSpawn, PrecisSpawn }
+public enum GameState { Pause, Game}
 public enum Waves { Kids, Parents, Polices }
 [System.Serializable]
 public class Wave {
@@ -12,7 +11,7 @@ public class Wave {
 }
 public class GameManager : MonoBehaviour{
     public static GameManager Instance;
-    public SpawnMode spawnMode;
+    public GameObject Player;
     public List<Wave> waves;
     public List<Spawner> Spawners = new List<Spawner>();
     public GameObject EnemyObject;
@@ -22,30 +21,19 @@ public class GameManager : MonoBehaviour{
     float chainSpawnTimer = 0;
     public PlayableDirector ShovelAnimation;
     public GameObject ShovelforAnimation;
-    List<float> timers = new List<float>();
+    public GameObject ShovelToPick;
+    public PlayableDirector EndingAnimation;
+    [HideInInspector] public GameState State;
     private void Awake() {
         Instance = this;
-        for (int i = 0; i < Spawners.Count; i++) timers.Add(0);
     }
     void Update(){
-        if (thisWave < waves.Count && waves[thisWave].enemies > 0 && !UIManager.Instance.DialogBox.activeSelf) {
-            switch (spawnMode) {
-                case SpawnMode.ChainSpawn:
-                    chainSpawnTimer += Time.deltaTime;
-                    if (chainSpawnTimer >= ChainSpawnTime) {
-                        chainSpawnTimer = 0;
-                        SpawnEnemy(Spawners[Random.Range(0, Spawners.Count)]);
-                    }
-                    break;
-                case SpawnMode.PrecisSpawn:
-                    for (int i = 0; i < timers.Count; i++) {
-                        timers[i] += Time.deltaTime;
-                        if (timers[i] > Spawners[i].SpawnTime) {
-                            timers[i] = 0;
-                            SpawnEnemy(Spawners[i]);
-                        }
-                    }
-                    break;
+        if (State == GameState.Pause) return;
+        if (thisWave < waves.Count && waves[thisWave].enemies > 0) {
+            chainSpawnTimer += Time.deltaTime;
+            if (chainSpawnTimer >= ChainSpawnTime) {
+                chainSpawnTimer = 0;
+                SpawnEnemy(Spawners[Random.Range(0, Spawners.Count)]);
             }
         }
     }
@@ -56,28 +44,30 @@ public class GameManager : MonoBehaviour{
         waves[thisWave].enemies--;
     }
     public void NextWave() {
-        switch (thisWave) {
-            case 0:
-                UIManager.Instance.LaunchDialogue("FinVague1");
-                break;
-            case 1:
-                UIManager.Instance.LaunchDialogue("FinVague2");
-                break;
-            case 2:
-                UIManager.Instance.LaunchDialogue("FinVague3");
-                break;
-        }
+        State = GameState.Pause;
+        UIManager.Instance.PlayAnimation(thisWave + 1);
         thisWave++;
         
     }
-    private IEnumerator PlayTimeline() {
-        ShovelAnimation.Play();
-        yield return new WaitForSeconds((float)ShovelAnimation.duration);
-        ShovelforAnimation.SetActive(false);
-        UIManager.Instance.LaunchDialogue("Intro2");
+    private IEnumerator PlayTimeline(int anim) {
+        switch (anim) {
+            case 0:
+                ShovelAnimation.Play();
+                yield return new WaitForSeconds((float)ShovelAnimation.duration);
+                ShovelforAnimation.SetActive(false);
+                ShovelToPick.SetActive(true);
+                UIManager.Instance.PlayAnimation(0);
+                yield break;
+            case 1:
+                EndingAnimation.Play();
+                yield return new WaitForSeconds((float)EndingAnimation.duration);
+                UIManager.Instance.ChangeSceneState(UIManager.Instance.Ending);
+                yield break;
+        }
+
     }
-    public void PlayAnimation() {
+    public void PlayAnimation(int anim) {
         StopAllCoroutines();
-        StartCoroutine(PlayTimeline());
+        StartCoroutine(PlayTimeline(anim));
     }
 }

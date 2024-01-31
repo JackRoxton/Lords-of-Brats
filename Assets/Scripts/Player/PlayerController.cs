@@ -27,13 +27,6 @@ public class PlayerController : MonoBehaviour
     bool isAttacking = false;
     bool isThrowing = false;
 
-    public enum GameState
-    {
-        Play,
-        Pause
-    }
-    public GameState State = GameState.Play;
-
     void Start()
     {
         animator = Sprite.GetComponent<Animator>();
@@ -41,7 +34,7 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        if(State == GameState.Pause) return;
+        if(GameManager.Instance.State == GameState.Pause) return;
         if(Input.GetMouseButtonDown(0))
         {
             if(isAttacking) return;
@@ -94,6 +87,7 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (GameManager.Instance.State == GameState.Pause) return;
         Movement.x = Input.GetAxis("Horizontal");
         Movement.y = Input.GetAxis("Vertical");
 
