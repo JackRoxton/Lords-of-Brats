@@ -371,7 +371,6 @@ GameObject:
   - component: {fileID: 7538735323555113080}
   - component: {fileID: 7538735323555113027}
   - component: {fileID: 7538735323555113029}
-  - component: {fileID: 7538735323555113026}
   m_Layer: 5
   m_Name: Managers
   m_TagString: Untagged
@@ -508,6 +507,8 @@ MonoBehaviour:
   Enemies: []
   ChainSpawnTime: 0.3
   thisWave: 0
+  ShovelAnimation: {fileID: 0}
+  ShovelforAnimation: {fileID: 0}
 --- !u!114 &7538735323555113029
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -528,24 +529,16 @@ MonoBehaviour:
     dialogues:
     - sentence: Salut c'est moi Timmie
     - sentence: J'aime battre ma soeur
+    callAtEnd:
+      m_PersistentCalls:
+        m_Calls: []
   - key: Fin
     dialogues:
     - sentence: C'est tout ce que tu vaux?
+    callAtEnd:
+      m_PersistentCalls:
+        m_Calls: []
   sentenceText: {fileID: 7538735324758373920}
---- !u!114 &7538735323555113026
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7538735323555113024}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4083867e3ba48004ea013cbbc7a37c4e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Music: {fileID: 0}
-  Song: {fileID: 0}
 --- !u!1 &7538735324758373921
 GameObject:
   m_ObjectHideFlags: 0
