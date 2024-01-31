@@ -70,6 +70,38 @@ MonoBehaviour:
     loop: 0
     playOnAwake: 0
     source: {fileID: 0}
+  - name: SisterHurt
+    clip: {fileID: 8300000, guid: 0ef0fa8ab1ea9b84d93666105fdd9230, type: 3}
+    output: {fileID: -5183536030703302700, guid: 0d3a0229fc5af6141aec3c8b3532c943, type: 2}
+    volume: 1
+    pitch: 0
+    loop: 0
+    playOnAwake: 0
+    source: {fileID: 0}
+  - name: SisterCry
+    clip: {fileID: 8300000, guid: 242c3758700eb174cb10514eaf20b3f1, type: 3}
+    output: {fileID: -5183536030703302700, guid: 0d3a0229fc5af6141aec3c8b3532c943, type: 2}
+    volume: 1
+    pitch: 0
+    loop: 0
+    playOnAwake: 0
+    source: {fileID: 0}
+  - name: SisterTalk1
+    clip: {fileID: 8300000, guid: fb4ee9a33632d7446b32c9ed0117f0ff, type: 3}
+    output: {fileID: -5183536030703302700, guid: 0d3a0229fc5af6141aec3c8b3532c943, type: 2}
+    volume: 1
+    pitch: 0
+    loop: 0
+    playOnAwake: 0
+    source: {fileID: 0}
+  - name: SisterTalk2
+    clip: {fileID: 8300000, guid: 333f9b345104d3b4aa9a52653a27aa4e, type: 3}
+    output: {fileID: -5183536030703302700, guid: 0d3a0229fc5af6141aec3c8b3532c943, type: 2}
+    volume: 1
+    pitch: 0
+    loop: 0
+    playOnAwake: 0
+    source: {fileID: 0}
   musics:
   - name: Music
     clip: {fileID: 8300000, guid: 334fcbd0067234448889def4b34b6f5f, type: 3}
