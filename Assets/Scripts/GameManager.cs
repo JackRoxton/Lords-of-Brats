@@ -15,6 +15,7 @@ public class GameManager : MonoBehaviour{
     public List<Wave> waves;
     public List<Spawner> Spawners = new List<Spawner>();
     public GameObject EnemyObject;
+    public GameObject Anais;
     public List<GameObject> Enemies = new List<GameObject>();
     public float ChainSpawnTime;
     [HideInInspector] public int thisWave = 0;
@@ -27,7 +28,7 @@ public class GameManager : MonoBehaviour{
     private void Awake() {
         Instance = this;
     }
-    void Update(){
+    void Update() {
         if (State == GameState.Pause) return;
         if (thisWave < waves.Count && waves[thisWave].enemies > 0) {
             chainSpawnTimer += Time.deltaTime;
@@ -36,6 +37,9 @@ public class GameManager : MonoBehaviour{
                 SpawnEnemy(Spawners[Random.Range(0, Spawners.Count)]);
             }
         }
+    }
+    public void SpawnAnais(Spawner spawner) {
+        Enemies.Add(Instantiate(Anais, spawner.transform.position, Quaternion.identity));
     }
     void SpawnEnemy(Spawner spawner) {
         Enemies.Add(Instantiate(EnemyObject, spawner.transform.position, Quaternion.identity));
@@ -50,7 +54,7 @@ public class GameManager : MonoBehaviour{
             Player.transform.position = Vector3.zero;
             PlayAnimation(1);
         }
-        UIManager.Instance.PlayAnimation(thisWave + 1);
+        else UIManager.Instance.PlayAnimation(thisWave + 1);
         thisWave++;    
     }   
     public void ChangeState(int state) {

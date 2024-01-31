@@ -107,7 +107,6 @@ MonoBehaviour:
   - {fileID: 51463785555371055, guid: fb0eb05caf473824098d82b5046df7ac, type: 3}
   - {fileID: 7927209512246561523, guid: 13e37201a76916f4ba06f7434f7947df, type: 3}
   KidsSprites:
-  - {fileID: 21300000, guid: fef6ec9b8e21b624bbb1ad2fc868266a, type: 3}
   - {fileID: 21300000, guid: f7fa27837671ae34c9c915e8665d91ea, type: 3}
   - {fileID: 21300000, guid: c2b4449030e4ba6468307be5b152dcb1, type: 3}
   - {fileID: 21300000, guid: f2ba8c6cea0cf0b48830a2038f0ebdde, type: 3}
@@ -115,7 +114,6 @@ MonoBehaviour:
   - {fileID: 21300000, guid: c8ddd61733fca0844912286e6e7f4822, type: 3}
   - {fileID: 21300000, guid: c671a276a0252004b9b0c705f2035b9f, type: 3}
   KidsHurtSprites:
-  - {fileID: 21300000, guid: ad84ebfb8d68b1042aab6de98563b10a, type: 3}
   - {fileID: 21300000, guid: 125d629ce1bc5804fae27f3156007f50, type: 3}
   - {fileID: 21300000, guid: 72c6d5061718baa47af3d5b43187dd62, type: 3}
   - {fileID: 21300000, guid: bb0e0443b17c70e42abd8d0d4b20d7f7, type: 3}

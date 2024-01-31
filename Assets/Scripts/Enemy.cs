@@ -104,7 +104,7 @@ public class Enemy : MonoBehaviour {
         {
             GameManager.Instance.Enemies.Remove(gameObject);
             if (GameManager.Instance.waves[GameManager.Instance.thisWave].enemies <= 0 &&
-                                GameManager.Instance.Enemies.Count <= 0) GameManager.Instance.NextWave();
+                                GameManager.Instance.Enemies.Count <= 0) GameManager.Instance.SpawnAnais(GameManager.Instance.Spawners[Random.Range(0, GameManager.Instance.Spawners.Count)]);
 
             if(Random.Range(0,100) >= 90)
             {
