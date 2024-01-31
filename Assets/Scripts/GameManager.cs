@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Playables;
+
 public enum SpawnMode { ChainSpawn, PrecisSpawn }
 public enum Waves { Kids, Parents, Polices }
 [System.Serializable]
@@ -18,6 +20,8 @@ public class GameManager : MonoBehaviour{
     public float ChainSpawnTime;
     [HideInInspector] public int thisWave = 0;
     float chainSpawnTimer = 0;
+    public PlayableDirector ShovelAnimation;
+    public GameObject ShovelforAnimation;
     List<float> timers = new List<float>();
     private void Awake() {
         Instance = this;
@@ -65,5 +69,15 @@ public class GameManager : MonoBehaviour{
         }
         thisWave++;
         
+    }
+    private IEnumerator PlayTimeline() {
+        ShovelAnimation.Play();
+        yield return new WaitForSeconds((float)ShovelAnimation.duration);
+        ShovelforAnimation.SetActive(false);
+        UIManager.Instance.LaunchDialogue("Intro2");
+    }
+    public void PlayAnimation() {
+        StopAllCoroutines();
+        StartCoroutine(PlayTimeline());
     }
 }
