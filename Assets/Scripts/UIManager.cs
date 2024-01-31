@@ -93,10 +93,11 @@ public class UIManager : MonoBehaviour {
     }
 
     private IEnumerator PlayTimeline(int anim) {
-        Wave.text = "Wave " + anim;
+        Wave.text = "Wave " + (anim + 1);
         WaveAnimation.Play();
         yield return new WaitForSeconds((float)WaveAnimation.duration);
         GameManager.Instance.State = GameState.Game;
+
     }
     public void PlayAnimation(int anim) {
         StopAllCoroutines();
