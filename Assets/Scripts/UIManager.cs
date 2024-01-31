@@ -111,6 +111,9 @@ public class UIManager : MonoBehaviour {
     public void SwitchActiveObject(GameObject scene) {
         scene.SetActive(!scene.activeSelf);
     }
+    public void Quit() {
+        Application.Quit();
+    }
     public void Reload() {
         SceneManager.LoadScene(0);
     }
