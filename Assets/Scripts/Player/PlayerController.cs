@@ -117,6 +117,7 @@ public class PlayerController : MonoBehaviour
         {
             Debug.Log("ono am ded");
         }
+        SoundManager.Instance.Play("Punch");
     }
 
     IEnumerator Attack()
@@ -147,6 +148,7 @@ public class PlayerController : MonoBehaviour
         Arm.GetComponent<Animator>().Play("ThrowWeapon");
         isThrowing = true;
         yield return new WaitForSeconds(0.1f);
+        SoundManager.Instance.Play("Throw");
         SavedWeapon.GetComponent <Weapon>().hitFlag = true;
         SavedWeapon.GetComponent<Weapon>().Throw();
         SavedWeapon.GetComponent<Rigidbody2D>().velocity = new Vector2(MousePos.x - this.transform.position.x,MousePos.y - this.transform.position.y).normalized * throwStrength;

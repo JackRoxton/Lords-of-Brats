@@ -24,6 +24,7 @@ public class PickupRange : MonoBehaviour
             {
                 Player.SavedWeapon.transform.localScale = new Vector3(-1, 1, 1);
             }
+            SoundManager.Instance.Play("Pick");
         }
     }
 }
