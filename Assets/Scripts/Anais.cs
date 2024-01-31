@@ -12,6 +12,7 @@ public class Anais : MonoBehaviour
     public int Hp = 5;
     public bool Stop = false;
     public bool hitFlag = true;
+    bool faceR = false;
     Vector3 direction;
     void Start()
     {
@@ -30,6 +31,17 @@ public class Anais : MonoBehaviour
             /*direction = new Vector3(0,0,0) - transform.position;
             transform.Translate(direction.normalized * Speed * Time.deltaTime);*/
             transform.position = Vector2.MoveTowards(this.transform.position, GameManager.Instance.Player.transform.position, Speed * Time.deltaTime);
+        }
+
+        if(GameManager.Instance.Player.transform.position.x > this.transform.position.x && !faceR)
+        {
+            this.GetComponent<SpriteRenderer>().flipX = true;
+            faceR = true;
+        }
+        else if (GameManager.Instance.Player.transform.position.x < this.transform.position.x && faceR)
+        {
+            this.GetComponent<SpriteRenderer>().flipX = false;
+            faceR = false;
         }
     }
 
