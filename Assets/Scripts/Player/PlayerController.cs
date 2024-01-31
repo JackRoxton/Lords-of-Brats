@@ -14,7 +14,7 @@ public class PlayerController : MonoBehaviour
     int hp = 3;
     Vector2 MousePos;
 
-    bool faceR = false;
+    [NonSerialized] public bool faceR = false;
 
     Animator animator;
     [NonSerialized] public GameObject SavedWeapon;

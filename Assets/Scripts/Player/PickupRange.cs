@@ -16,6 +16,14 @@ public class PickupRange : MonoBehaviour
             Player.SavedWeapon = collision.gameObject;
             Player.SavedWeapon.tag = "Weapon";
             Player.SavedWeapon.GetComponent<Weapon>().ChangeSprite(Player.gameObject);
+            if (Player.faceR)
+            {
+                Player.SavedWeapon.transform.localScale = new Vector3(-1, -1, 1);
+            }
+            else if (!Player.faceR)
+            {
+                Player.SavedWeapon.transform.localScale = new Vector3(-1, 1, 1);
+            }
         }
     }
 }
