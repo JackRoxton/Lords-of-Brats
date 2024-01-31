@@ -27,6 +27,8 @@ public class PlayerController : MonoBehaviour
     bool isAttacking = false;
     bool isThrowing = false;
 
+    bool hitflag = true;
+
     void Start()
     {
         animator = Sprite.GetComponent<Animator>();
@@ -108,6 +110,8 @@ public class PlayerController : MonoBehaviour
 
     public void GetHit(int dmg, Vector2 kb)
     {
+        if(!hitflag) return;
+        StartCoroutine(HitFlagCD());
         this.GetComponent<Rigidbody2D>().velocity = kb;
         animator.Play("PlayerHurt");
         hp -= dmg;
@@ -116,6 +120,13 @@ public class PlayerController : MonoBehaviour
             Debug.Log("ono am ded");
         }
         SoundManager.Instance.Play("Punch");
+    }
+
+    IEnumerator HitFlagCD()
+    {
+        hitflag = false;
+        yield return new WaitForSeconds(0.2f);
+        hitflag = true;
     }
 
     IEnumerator Attack()
