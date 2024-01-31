@@ -202,13 +202,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 175792782854432001, guid: 7ea69e9cd2c6448429847430f14904ad, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 200433591390687745, guid: 7ea69e9cd2c6448429847430f14904ad, type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 958492988012763300, guid: 7ea69e9cd2c6448429847430f14904ad, type: 3}
       propertyPath: m_text
-      value: Wave 1
+      value: Next Wave
       objectReference: {fileID: 0}
     - target: {fileID: 958492988012763300, guid: 7ea69e9cd2c6448429847430f14904ad, type: 3}
       propertyPath: m_fontSize
@@ -224,7 +228,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 958492988012763300, guid: 7ea69e9cd2c6448429847430f14904ad, type: 3}
       propertyPath: m_fontColor32.rgba
-      value: 16777215
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 958492988012763300, guid: 7ea69e9cd2c6448429847430f14904ad, type: 3}
       propertyPath: m_VerticalAlignment
@@ -241,6 +245,14 @@ PrefabInstance:
     - target: {fileID: 3763018474886507355, guid: 7ea69e9cd2c6448429847430f14904ad, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_StringArgument
       value: Intro1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3926170525666333430, guid: 7ea69e9cd2c6448429847430f14904ad, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7064704512198842431, guid: 7ea69e9cd2c6448429847430f14904ad, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7538735323555113024, guid: 7ea69e9cd2c6448429847430f14904ad, type: 3}
       propertyPath: m_Name
@@ -621,7 +633,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7926763516033995581, guid: 7ea69e9cd2c6448429847430f14904ad, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 600
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 7926763516033995581, guid: 7ea69e9cd2c6448429847430f14904ad, type: 3}
       propertyPath: m_SizeDelta.y
@@ -634,6 +646,10 @@ PrefabInstance:
     - target: {fileID: 7926763516033995581, guid: 7ea69e9cd2c6448429847430f14904ad, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 395
+      objectReference: {fileID: 0}
+    - target: {fileID: 8764607097021534305, guid: 7ea69e9cd2c6448429847430f14904ad, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7ea69e9cd2c6448429847430f14904ad, type: 3}

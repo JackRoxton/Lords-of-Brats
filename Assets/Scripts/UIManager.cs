@@ -97,7 +97,7 @@ public class UIManager : MonoBehaviour {
     }
 
     private IEnumerator PlayTimeline(int anim) {
-        Wave.text = "Wave " + (anim + 1);
+        Wave.text = "Next Wave";
         WaveAnimation.Play();
         yield return new WaitForSeconds((float)WaveAnimation.duration);
         GameManager.Instance.State = GameState.Game;
