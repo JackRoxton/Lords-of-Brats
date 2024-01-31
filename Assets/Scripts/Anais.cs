@@ -60,7 +60,7 @@ public class Anais : MonoBehaviour
         if (!hitFlag) return;
         StopAllCoroutines();
 
-        SoundManager.Instance.Play("Punch");
+        SoundManager.Instance.Play("SisterCry");
 
         Camera.main.GetComponent<CameraScript>().ScreenShake();
         Camera.main.GetComponent<CameraScript>().HitStop();
