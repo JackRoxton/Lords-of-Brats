@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Events;
 using TMPro;
 using System;
 using UnityEngine.SceneManagement;
@@ -11,6 +12,7 @@ using static UnityEngine.Rendering.SplashScreen;
 public class Dialogue {
     public string key;
     public dialogueStruct[] dialogues;
+    public UnityEvent callAtEnd;
 }
 
 [System.Serializable]
@@ -22,21 +24,23 @@ public struct dialogueStruct {
 public class UIManager : MonoBehaviour {
     public static UIManager Instance;
     private Animator animator;
-
-    public Queue<dialogueStruct> sentences;
-    public Dialogue[] dictionnary;
-
+    [Header("UI Assets")]
     public GameObject MainMenu;
     public GameObject Ending;
     public GameObject DialogBox;
+
+    [Header("Texts")]
+    public Dialogue[] dictionnary;
     public TextMeshProUGUI sentenceText;
+    public Queue<dialogueStruct> sentences;
+
+    UnityEvent functionToCall;
     bool antiSpeed = true;
 
     private void Awake() {
         Instance = this;
         animator = GetComponent<Animator>();
         DialogBox.SetActive(false);
-        LaunchDialogue("Intro");
     }
     public void Update() {
         if (Input.GetKeyDown(KeyCode.I)) UIManager.Instance.LaunchDialogue("Intro");
@@ -51,6 +55,7 @@ public class UIManager : MonoBehaviour {
             Debug.Log("Dialogue " + key + " not found");
             return;
         }
+        functionToCall = d.callAtEnd;
         sentences = new Queue<dialogueStruct>();
         foreach (dialogueStruct dialogue in d.dialogues) sentences.Enqueue(dialogue);
         animator.SetBool("isOpen", true);
@@ -80,6 +85,10 @@ public class UIManager : MonoBehaviour {
         animator.SetBool("isOpen", false);
         //SoundManager.Instance.Music.volume = 1f;
         DialogBox.SetActive(false);
+        if(functionToCall != null) functionToCall.Invoke();
+    }
+    public void ChangeSceneState(GameObject scene) {
+        scene.SetActive(!scene.activeSelf);
     }
     public void Reload() {
         SceneManager.LoadScene(0);
