@@ -7,6 +7,7 @@ using TMPro;
 using System;
 using UnityEngine.SceneManagement;
 using static UnityEngine.Rendering.SplashScreen;
+using UnityEngine.Playables;
 
 [System.Serializable]
 public class Dialogue {
@@ -28,11 +29,14 @@ public class UIManager : MonoBehaviour {
     public GameObject MainMenu;
     public GameObject Ending;
     public GameObject DialogBox;
+    public TMP_Text Wave;
 
     [Header("Texts")]
     public Dialogue[] dictionnary;
     public TextMeshProUGUI sentenceText;
     public Queue<dialogueStruct> sentences;
+
+    public PlayableDirector WaveAnimation;
 
     UnityEvent functionToCall;
     bool antiSpeed = true;
@@ -86,6 +90,17 @@ public class UIManager : MonoBehaviour {
         //SoundManager.Instance.Music.volume = 1f;
         DialogBox.SetActive(false);
         if(functionToCall != null) functionToCall.Invoke();
+    }
+
+    private IEnumerator PlayTimeline(int anim) {
+        Wave.text = "Wave " + anim;
+        WaveAnimation.Play();
+        yield return new WaitForSeconds((float)WaveAnimation.duration);
+        GameManager.Instance.State = GameState.Game;
+    }
+    public void PlayAnimation(int anim) {
+        StopAllCoroutines();
+        StartCoroutine(PlayTimeline(anim));
     }
     public void ChangeSceneState(GameObject scene) {
         scene.SetActive(!scene.activeSelf);

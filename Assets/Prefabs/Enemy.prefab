@@ -107,17 +107,9 @@ MonoBehaviour:
   - {fileID: 51463785555371055, guid: fb0eb05caf473824098d82b5046df7ac, type: 3}
   - {fileID: 7927209512246561523, guid: 13e37201a76916f4ba06f7434f7947df, type: 3}
   KidsSprites:
-  - {fileID: 21300000, guid: 05c0b64d8f3d8cc45bc6e3a064710305, type: 3}
-  - {fileID: 21300000, guid: f2ba8c6cea0cf0b48830a2038f0ebdde, type: 3}
-  - {fileID: 21300000, guid: 66f5ec970a64a3d48a648388d85ac0f8, type: 3}
-  - {fileID: 21300000, guid: c8ddd61733fca0844912286e6e7f4822, type: 3}
-  - {fileID: 21300000, guid: c671a276a0252004b9b0c705f2035b9f, type: 3}
+  - {fileID: 21300000, guid: fef6ec9b8e21b624bbb1ad2fc868266a, type: 3}
   KidsHurtSprites:
-  - {fileID: 21300000, guid: 05c0b64d8f3d8cc45bc6e3a064710305, type: 3}
-  - {fileID: 21300000, guid: de50d6b7bd8b49f4584825f3952045a8, type: 3}
-  - {fileID: 21300000, guid: 48a6f03f41f66094a882f519ece025f4, type: 3}
-  - {fileID: 21300000, guid: 9f4281740519fab43b49e084a5c0cde4, type: 3}
-  - {fileID: 21300000, guid: 85e08abe64c4dd940ae98b75812fd989, type: 3}
+  - {fileID: 21300000, guid: ad84ebfb8d68b1042aab6de98563b10a, type: 3}
   AdultsSprites:
   - {fileID: 21300000, guid: c628675f0515ca6478aa656fe7ffcb60, type: 3}
   - {fileID: 21300000, guid: be6ebdd8af687e44facdb859d187e418, type: 3}
@@ -152,6 +144,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 4eccdaf355500464fa34b8f8b4d10170, type: 3}
   Hp: 1
   Stop: 0
+  hitFlag: 1
 --- !u!50 &6135371068716354461
 Rigidbody2D:
   serializedVersion: 4
