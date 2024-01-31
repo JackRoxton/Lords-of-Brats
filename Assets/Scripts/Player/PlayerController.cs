@@ -55,6 +55,10 @@ public class PlayerController : MonoBehaviour
             {
                 StartCoroutine(Throw());
             }
+            else
+            {
+                StartCoroutine(Pickup());
+            }
         }
 
         if (Input.GetKeyDown(KeyCode.E))

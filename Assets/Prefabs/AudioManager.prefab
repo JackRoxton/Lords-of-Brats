@@ -55,7 +55,7 @@ MonoBehaviour:
     playOnAwake: 0
     source: {fileID: 0}
   - name: Punch
-    clip: {fileID: 8300000, guid: 95e42454325111a4d9e0958044929d96, type: 3}
+    clip: {fileID: 8300000, guid: 90b52ee13256bca43a027eb86d6ed4ee, type: 3}
     output: {fileID: -5183536030703302700, guid: 0d3a0229fc5af6141aec3c8b3532c943, type: 2}
     volume: 1
     pitch: 0
@@ -74,14 +74,14 @@ MonoBehaviour:
   - name: Music
     clip: {fileID: 8300000, guid: 334fcbd0067234448889def4b34b6f5f, type: 3}
     output: {fileID: -6316473741041235712, guid: 0d3a0229fc5af6141aec3c8b3532c943, type: 2}
-    volume: 1
+    volume: 0.2
     pitch: 0
     loop: 1
     playOnAwake: 0
     source: {fileID: 0}
   audioMix: {fileID: 24100000, guid: 0d3a0229fc5af6141aec3c8b3532c943, type: 2}
   masterVolume: 0.8
-  musicVolume: 0.8
+  musicVolume: 0.4
   sfxVolume: 0.8
 --- !u!82 &7831401342384806777
 AudioSource:
